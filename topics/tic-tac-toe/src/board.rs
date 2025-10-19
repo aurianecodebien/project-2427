@@ -26,7 +26,7 @@ impl Board {
         if position >= 9 {
             return false;
         }
-        
+
         if self.cells[position].is_empty() {
             self.cells[position] = Cell::Occupied(player);
             true
