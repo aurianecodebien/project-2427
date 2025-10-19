@@ -29,15 +29,15 @@ fn main() {
         // Check game state
         match game.state() {
             GameState::Won(Player::Human) => {
-                println!("🎉 Congratulations! You won!");
+                println!("Congratulations! You won!");
                 break;
             }
             GameState::Won(Player::AI) => {
-                println!("💻 AI wins! Better luck next time!");
+                println!("AI wins! Better luck next time!");
                 break;
             }
             GameState::Draw => {
-                println!("🤝 It's a draw! Well played!");
+                println!("It's a draw! Well played!");
                 break;
             }
             GameState::InProgress => {
@@ -52,18 +52,18 @@ fn main() {
             let position = get_human_move(&game);
 
             if !game.make_move(position) {
-                println!("❌ Invalid move! Try again.");
+                println!("Invalid move! Try again.");
                 continue;
             }
         } else {
             // AI turn
-            println!("AI is thinking... 🤔");
+            println!("AI is thinking...");
 
             if let Some(position) = ai.find_best_move(&game) {
                 game.make_move(position);
                 println!("AI played position {}", position + 1);
             } else {
-                println!("❌ Error: AI couldn't find a move!");
+                println!("Error: AI couldn't find a move!");
                 break;
             }
         }
@@ -93,11 +93,11 @@ fn get_human_move(game: &Game) -> usize {
                 if game.available_moves().contains(&position) {
                     return position;
                 } else {
-                    println!("❌ That position is already taken! Try another.");
+                    println!("That position is already taken! Try another.");
                 }
             }
             _ => {
-                println!("❌ Invalid input! Please enter a number between 1 and 9.");
+                println!("Invalid input! Please enter a number between 1 and 9.");
             }
         }
     }
